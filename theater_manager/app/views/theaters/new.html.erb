@@ -1,0 +1,11 @@
+<form action="/theaters" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new Theater:</p>
+  Name: <input type='text' name='theater[name]'/><br/>
+  Location: <input type='text' name='theater[location]'/><br/>
+  Open?<input type='checkbox' name='theater[is_open]'/><br/>
+  Maximum Occupants<input type='number' name='theater[capacity]'/><br/>
+  <input type='submit'/>
+</form>
+
+<!-- Boolean input type? -->
