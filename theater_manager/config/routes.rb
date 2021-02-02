@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   get '/', to: 'welcome#index'
   get	'/theaters', to: 'theaters#index'
+  get '/theaters/new', to: 'theaters#new'
   get '/auditoriums', to: 'auditoriums#index'
+
+  post '/theaters', to: 'theaters#create'
 end
 
 # have a localized welcome page, that has two routes to Theaters and Audits
