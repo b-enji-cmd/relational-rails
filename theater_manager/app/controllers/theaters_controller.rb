@@ -1,7 +1,7 @@
 class TheatersController < ApplicationController
 
 	def index
-		@theaters = ['Theater 1', 'Theater 2','Theater 3']
+		@theaters = Theater.all
 	end
 
 	def new
