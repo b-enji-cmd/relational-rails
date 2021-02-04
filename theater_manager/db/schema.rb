@@ -23,5 +23,13 @@ ActiveRecord::Schema.define(version: 2021_02_03_203344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  
+  create_table "auditoria", force: :cascade do |t|
+    t.string "name"
+    t.integer "capacity"
+    t.boolean "is_imax_auditorium"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
