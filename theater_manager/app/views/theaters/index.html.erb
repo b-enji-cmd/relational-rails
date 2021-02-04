@@ -1,5 +1,8 @@
 <h1>All Theaters</h1>
 
 <% @theaters.each do |theater| %>
-	<h3><%= theater %></h3>
+	<h3><a href="/theaters/<%= theater.id%>"><%= theater.name%></a></h3>
+	<p>Location: <%= theater.location%></p>
+	<p>Currently Open?: <%= theater.is_open%></p>
+	<p>Maximum Capacity: <%= theater.capacity%></p>
 <% end %>
