@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/theaters/new', to: 'theaters#new'
   get '/auditoriums', to: 'auditoriums#index'
   get '/auditoriums/new', to: 'auditoriums#new'
+  get '/auditoriums/:id', to: 'auditoriums#show'
 
   post '/theaters', to: 'theaters#create'
   post '/auditoriums', to: 'auditoriums#create'

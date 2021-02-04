@@ -1,7 +1,6 @@
-<h1>All Auditoriums</h1>
+<h3><a href="/auditoriums/new">New Auditorium</a></h3><br>
 
+<h1>All Auditoriums</h1>
 <% @auditoriums.each do |auditorium| %>
-  <h3><%= auditorium.name %></h3>
-  <p>Capacity: <%=auditorium.capacity %></p>
-  <p>Imax Theater: <%= auditorium.is_imax_auditorium? %></p>
+  <h3><a href="/auditoriums/<%= auditorium.id %>"><%= auditorium.name %></a></h3>
 <% end %>
