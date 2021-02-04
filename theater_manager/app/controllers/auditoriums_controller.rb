@@ -1,7 +1,6 @@
 class AuditoriumsController < ApplicationController
   def index
-    @auditoriums = ['Auditorium1', 'Auditorium2']
-    # @auditoriums = Auditorium.all
+    @auditoriums = Auditorium.all
   end
 
   def new
@@ -11,9 +10,8 @@ class AuditoriumsController < ApplicationController
     auditorium = Auditorium.new({
       name: params[:auditorium][:name],
       capacity: params[:auditorium][:capacity],
-      is_imax_theater?: params[:auditorium][:is_imax_theater?]
+      is_imax_theater?: params[:auditorium][:is_imax_auditorium?]
       })
-      binding.pry
 
       auditorium.save
 
