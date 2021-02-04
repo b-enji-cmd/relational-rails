@@ -12,13 +12,33 @@ class TheatersController < ApplicationController
 		theater = Theater.new({
 			name: params[:theater][:name],
 			location: params[:theater][:location],
-			is_open: params[:theater][:is_open],
+			is_open: params[:theater][:is_open]||false,
 			capacity: params[:theater][:capacity]
 		})
 
 		theater.save
 
 		redirect_to '/theaters'
+	end
+
+	def show
+		@theater = Theater.find(params[:id])
+	end
+
+	def edit
+		@theater = Theater.find(params[:id])
+	end
+
+	def update
+		theater = Theater.find(params[:id])
+		theater.update({
+			name: params[:theater][:name],
+			location: params[:theater][:location],
+			is_open: params[:theater][:is_open],
+			capacity: params[:theater][:capacity]
+		})
+		theater.save
+		redirect_to "/theaters/#{theater.id}"
 	end
 	
 end
