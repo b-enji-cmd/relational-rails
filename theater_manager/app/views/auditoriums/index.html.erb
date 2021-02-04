@@ -1,5 +1,7 @@
 <h1>All Auditoriums</h1>
 
 <% @auditoriums.each do |auditorium| %>
-  <h3><%= auditorium %></h3>
+  <h3><%= auditorium.name %></h3>
+  <p>Capacity: <%=auditorium.capacity %></p>
+  <p>Imax Theater: <%= auditorium.is_imax_auditorium? %></p>
 <% end %>
