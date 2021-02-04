@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_204005) do
+ActiveRecord::Schema.define(version: 2021_02_03_235658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "auditoriums", force: :cascade do |t|
+  create_table "auditoria", force: :cascade do |t|
     t.string "name"
     t.integer "capacity"
-    t.boolean "is_imax_theater?"
+    t.boolean "is_imax_auditorium"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
