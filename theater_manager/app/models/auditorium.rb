@@ -1,0 +1,3 @@
+class Auditorium < ApplicationRecord
+
+end
