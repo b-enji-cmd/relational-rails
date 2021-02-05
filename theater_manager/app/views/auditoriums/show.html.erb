@@ -3,3 +3,5 @@
 <h2><%= @auditorium.name %></h2>
 <p>Capacity: <%= @auditorium.capacity %></p>
 <p>IMAX Auditorium: <%= @auditorium.is_imax_auditorium ? "Yes" : "No" %></p>
+
+<h4><a href="/auditoriums/<%= @auditorium.id %>/edit">Edit Auditorium</a></h4>
