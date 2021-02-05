@@ -21,4 +21,22 @@ class AuditoriumsController < ApplicationController
   def show
     @auditorium = Auditorium.find(params[:id])
   end
+
+  def edit
+    @auditorium = Auditorium.find(params[:id])
+  end
+
+  def update
+    auditorium = Auditorium.find(params[:id])
+
+    auditorium.update({
+      name: params[:auditorium][:name],
+      capacity: params[:auditorium][:capacity],
+      is_imax_auditorium: params[:auditorium][:is_imax_auditorium]
+      })
+
+      auditorium.save
+
+      redirect_to "/auditoriums/#{auditorium.id}"
+  end
 end

@@ -1,0 +1,22 @@
+<form action="/auditoriums/<%= @auditorium.id %>" method="post">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+    Name: <input type='text' name='auditorium[name]' value="<%= @auditorium.name %>"/><br/>
+    Capacity: <input type='number' name='auditorium[capacity]' value="<%= @auditorium.capacity %>"/><br>
+    IMAX Auditorium:  <% if @auditorium.is_imax_auditorium == true %>
+                        <%= radio_button_tag "auditorium[is_imax_auditorium]", true, true %>
+                        <label for "true">Yes</label>
+                        <%= radio_button_tag "auditorium[is_imax_auditorium]", false, false %>
+                        <label for "false">No</label>
+                      <% else %>
+                        <%= radio_button_tag "auditorium[is_imax_auditorium]", true, false %>
+                        <label for "true">Yes</label>
+                        <%= radio_button_tag "auditorium[is_imax_auditorium]", false, true %>
+                        <label for "false">No</label>
+                      <% end %>
+
+                    <br><br>
+  <input type='submit' value='Update Auditorium'/>
+</form>
