@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   patch '/theaters/:id', to: 'theaters#update'
 
+  delete '/theaters/:id', to: 'theaters#destroy'
+
 end
 
 # have a localized welcome page, that has two routes to Theaters and Audits
