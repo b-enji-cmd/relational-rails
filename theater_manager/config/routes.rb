@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/theaters/new', to: 'theaters#new'
   get '/theaters/:id', to: 'theaters#show'
   get '/theaters/:id/edit', to: 'theaters#edit'
-  
+
   get '/auditoriums', to: 'auditoriums#index'
   get '/auditoriums/new', to: 'auditoriums#new'
   get '/auditoriums/:id', to: 'auditoriums#show'
@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   patch '/theaters/:id', to: 'theaters#update'
 
   delete '/theaters/:id', to: 'theaters#destroy'
-  
+  delete '/auditoriums/:id', to: 'auditoriums#destroy'
+
 end
 
 # have a localized welcome page, that has two routes to Theaters and Audits

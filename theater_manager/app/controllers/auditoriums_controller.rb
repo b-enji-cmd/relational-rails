@@ -39,4 +39,9 @@ class AuditoriumsController < ApplicationController
 
       redirect_to "/auditoriums/#{auditorium.id}"
   end
+
+  def destroy
+		Auditorium.destroy(params[:id])
+		redirect_to '/auditoriums'
+  end
 end
