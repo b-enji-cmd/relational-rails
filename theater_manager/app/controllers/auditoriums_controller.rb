@@ -62,6 +62,11 @@ class AuditoriumsController < ApplicationController
 		redirect_to '/auditoriums'
   end
 
+  def movies
+    @auditorium = Auditorium.find(params[:id])
+    @movies = Movie.where(auditorium_id: @auditorium.id)
+  end
+
   # private
   #
   # def auditorium_params
