@@ -1,4 +1,6 @@
 <h1>All Theaters</h1>
+<a href="/theaters/new">New Theater</a>
+
 
 <% @theaters.each do |theater| %>
 	<h3><a href="/theaters/<%= theater.id%>"><%= theater.name%></a></h3>
