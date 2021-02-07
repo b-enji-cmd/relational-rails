@@ -45,16 +45,4 @@ RSpec.describe 'When I visit auditorium index', type: :feature do
     expect(page).to have_content("Capacity: 101")
     expect(page).to have_content("IMAX Auditorium: Yes")
   end
-
-  # it 'creates a new auditorium' do
-  #   visit '/auditoriums/new'
-  #
-  #   fill_in('auditorium[name]', with: 'South 1')
-  #   fill_in('auditorium[capacity]', with: '100')
-  #   choose('true')
-  #   click_button('Create Auditorium')
-  #   save_and_open_page
-  #
-  #   expect(page).to have_content('South 1')
-  # end
 end
