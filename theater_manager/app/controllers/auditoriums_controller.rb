@@ -10,12 +10,15 @@ class AuditoriumsController < ApplicationController
     auditorium = Auditorium.new({
       name: params[:auditorium][:name],
       capacity: params[:auditorium][:capacity],
-      is_imax_auditorium: params[:auditorium][:is_imax_auditorium]
+      is_imax_auditorium: params[:auditorium][:is_imax_auditorium] || false
       })
 
-      auditorium.save
-
-      redirect_to '/auditoriums'
+      if auditorium.save
+        redirect_to '/auditoriums'
+      else
+        flash[:notice] = 'Auditorium not created: Required information missing.'
+        render :new
+      end
   end
 
   def show
@@ -44,4 +47,10 @@ class AuditoriumsController < ApplicationController
 		Auditorium.destroy(params[:id])
 		redirect_to '/auditoriums'
   end
+
+  # private
+  #
+  # def auditorium_params
+  #   params.require(:auditorium).permit(:name, :capacity, :is_imax_auditorium)
+  # end
 end
