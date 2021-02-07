@@ -46,12 +46,12 @@ RSpec.describe 'When I visit movies index', type: :feature do
 
       expect(current_path).to eq("/movies")
 
-      # click_link("East 1")
-      # click_link("Edit Auditorium")
-      #
-      # expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/edit")
-      #
-      # click_button("Update Auditorium")
+      click_link("The Big Lebowski", match: :first)
+      click_link("Edit Movie")
+
+      expect(current_path).to eq("/movies/#{movie_1.id}/edit")
+
+      click_button("Update Auditorium")
       # click_link("Delete Auditorium")
       #
       # expect(current_path).to eq("/auditoriums")
