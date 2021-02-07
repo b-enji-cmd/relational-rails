@@ -15,13 +15,15 @@ Rails.application.routes.draw do
 
   get '/movies', to: 'movies#index'
   get '/movies/:id', to: 'movies#show'
-  
+  get '/movies/:id/edit', to: 'movies#edit'
 
   post '/theaters', to: 'theaters#create'
   post '/auditoriums', to: 'auditoriums#create'
 
   patch '/auditoriums/:id', to: 'auditoriums#update'
   patch '/theaters/:id', to: 'theaters#update'
+
+  patch '/movies/:id', to: 'movies#update'
 
   delete '/theaters/:id', to: 'theaters#destroy'
   delete '/auditoriums/:id', to: 'auditoriums#destroy'
