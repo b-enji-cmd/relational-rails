@@ -1,11 +1,16 @@
 <form action="/auditoriums" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new auditorium:</p>
-  Name: <input type='text' name='auditorium[name]'/><br/><br>
-  Capacity: <input type='number' name='auditorium[capacity]'></input><br/><br>
-  IMAX Auditorium: <input type='radio' id="true" name='auditorium[is_imax_auditorium]' value="true"></input>
+  <p>Create a new auditorium:</p>
+    <label for="name">Name: <span aria-hidden="true" style="color:red;">*</span></label>
+    <input aria-describedby="required-description" name="auditorium[name]" type="text" /><br><br>
+    <label for="name">Capacity: <span aria-hidden="true" style="color:red;">*</span></label>
+    <input aria-describedby="required-description" name="auditorium[capacity]" type="number" /><br><br>
+    IMAX Auditorium: <input type='radio' id="true" name='auditorium[is_imax_auditorium]' value="true"></input>
                 <label for "true">Yes</label>
                 <input type='radio' id="false" name='auditorium[is_imax_auditorium]' value="false"></input>
                               <label for "false">No</label><br><br>
   <input type='submit' value="Create Auditorium"/>
+  <p aria-hidden="true" id="required-description">
+    <span aria-hidden="true" style="color:red;">*</span>Required field
+  </p>
 </form>
