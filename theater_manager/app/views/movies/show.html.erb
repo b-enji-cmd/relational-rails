@@ -8,3 +8,4 @@
 <p>Auditorium: <%= Auditorium.find(@movie.auditorium_id).name %></p>
 
 <a href="/movies/<%= @movie.id %>/edit">Edit Movie</a><br><br>
+<%= link_to 'Delete Movie', "/movies/#{@movie.id}", method: :delete %><br><br><br>
