@@ -49,6 +49,8 @@ class AuditoriumsController < ApplicationController
   def movies
     @auditorium = Auditorium.find(params[:id])
     @movies = Movie.where(auditorium_id: @auditorium.id)
+
+    render "movies/index"
   end
 
   # private
