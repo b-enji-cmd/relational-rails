@@ -48,7 +48,7 @@ RSpec.describe 'auditoriums new page', type: :feature do
     expect(page).to have_button('Create Auditorium')
   end
 
-  it 'creates auditorium when is_imax_auditorium as false when not selected' do
+  it 'creates auditorium when IMAX Auditorium radio is not selected' do
     visit '/auditoriums/new'
 
     fill_in('auditorium[name]', with: 'South 2')
