@@ -26,7 +26,6 @@ RSpec.describe 'auditoriums new page', type: :feature do
 
   it 'does not create new auditorium when name or capacity are empty' do
     visit '/auditoriums/new'
-    # save_and_open_page
 
     choose('true')
     click_button('Create Auditorium')
@@ -47,5 +46,16 @@ RSpec.describe 'auditoriums new page', type: :feature do
 
     expect(page).to have_content("Auditorium not created: Required information missing.")
     expect(page).to have_button('Create Auditorium')
+  end
+
+  it 'creates auditorium when is_imax_auditorium as false when not selected' do
+    visit '/auditoriums/new'
+
+    fill_in('auditorium[name]', with: 'South 2')
+    fill_in('auditorium[capacity]', with: '25')
+    click_button('Create Auditorium')
+    save_and_open_page
+
+    expect(page).to have_content('South 2')
   end
 end
