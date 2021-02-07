@@ -1,0 +1,9 @@
+<h1>All Movies</h1>
+
+<% @movies.each do |movie| %>
+  <h3><a href="/movies/<%= movie.id %>"><%= movie.name %></a></h3>
+  <p>Showtime Start: <%= movie.showtime %></p>
+  <p>Duration: <%= movie.duration %></p>
+  <p>Ticket Cost: <%= movie.ticket_cost %></p>
+  <p>Rated R: <%= movie.is_rated_r ? "Yes" : "No" %></p>
+<% end %>
