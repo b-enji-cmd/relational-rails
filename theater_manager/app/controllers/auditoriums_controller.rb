@@ -32,15 +32,29 @@ class AuditoriumsController < ApplicationController
   def update
     auditorium = Auditorium.find(params[:id])
 
-    auditorium.update({
-      name: params[:auditorium][:name],
-      capacity: params[:auditorium][:capacity],
-      is_imax_auditorium: params[:auditorium][:is_imax_auditorium]
-      })
+    if params[:auditorium][:name].empty? && params[:auditorium][:capacity].empty?
+      auditorium.update!({
+        is_imax_auditorium: params[:auditorium][:is_imax_auditorium]
+        })
+    elsif params[:auditorium][:name].empty?
+      auditorium.update!({
+        capacity: params[:auditorium][:capacity],
+        is_imax_auditorium: params[:auditorium][:is_imax_auditorium]
+        })
+    elsif params[:auditorium][:capacity].empty?
+      auditorium.update!({
+        name: params[:auditorium][:name],
+        is_imax_auditorium: params[:auditorium][:is_imax_auditorium]
+        })
+    else
+      auditorium.update!({
+        name: params[:auditorium][:name],
+        capacity: params[:auditorium][:capacity],
+        is_imax_auditorium: params[:auditorium][:is_imax_auditorium]
+        })
+    end
 
-      auditorium.save
-
-      redirect_to "/auditoriums/#{auditorium.id}"
+    redirect_to "/auditoriums/#{auditorium.id}"
   end
 
   def destroy
