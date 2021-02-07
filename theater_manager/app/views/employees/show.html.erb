@@ -1,0 +1,6 @@
+<a href="/employees">Back to index</a>
+<p><%= @employee.name %></p>
+<p><%= @employee.is_full_time %></p>
+<p><%= @employee.hours_worked %></p>
+<a href="/employees/<%= @employee.id%>/edit">Edit</a>
+<%= link_to 'delete', "/employees/#{@employee.id}", method: :delete %>
