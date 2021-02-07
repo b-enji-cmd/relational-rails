@@ -1,0 +1,24 @@
+<form action="/movies/<%= @movie.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Editing <%= @movie.name %> Movie</p>
+    Name: <input type='text' name='movie[name]' value="<%= @movie.name %>"/><br/>
+    Start Date: <input type='date' name='movie[showtime_date]' value="<%= @movie.showtime_date %>"/><br>
+    Start Time: <input type='time' name='movie[showtime_start]' value="<%= @movie.showtime_start.strftime("%H:%M:%S") %>"/><br>
+    Duration: <input type='number' name='movie[duration]' value="<%= @movie.duration %>"/><br>
+    Ticket Cost: <input type='number' name='movie[ticket_cost]' value="<%= @movie.ticket_cost %>"/><br>
+    Rated R:  <% if @movie.is_rated_r == true %>
+                        <%= radio_button_tag "movie[is_rated_r]", true, true %>
+                        <label for "true">Yes</label>
+                        <%= radio_button_tag "movie[is_rated_r]", false, false %>
+                        <label for "false">No</label>
+                      <% else %>
+                        <%= radio_button_tag "movie[is_rated_r]", true, false %>
+                        <label for "true">Yes</label>
+                        <%= radio_button_tag "movie[is_rated_r]", false, true %>
+                        <label for "false">No</label>
+                      <% end %><br><br>
+    Auditorium: <input type='text' name='movie[auditorium_id]' value="<%= Auditorium.find(@movie.auditorium_id).name %>" readonly style="background-color:lightgray;"/><br/>
+                <br><br>
+  <input type='submit' value='Update Movie'/>
+</form>
