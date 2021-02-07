@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   delete '/theaters/:id', to: 'theaters#destroy'
   delete '/auditoriums/:id', to: 'auditoriums#destroy'
 
+  delete '/movies/:id', to: 'movies#destroy'
+
 end
 
 # have a localized welcome page, that has two routes to Theaters and Audits
