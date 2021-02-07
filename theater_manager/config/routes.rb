@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/auditoriums/:id', to: 'auditoriums#show'
   get '/auditoriums/:id/edit', to: 'auditoriums#edit'
 
+  get '/movies', to: 'movies#index'
+
   post '/theaters', to: 'theaters#create'
   post '/auditoriums', to: 'auditoriums#create'
 
