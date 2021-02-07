@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'auditoriums index page', type: :feature do
+RSpec.describe 'When I visit auditoriums index page', type: :feature do
 
-  it 'can display all auditoriums names' do
+  it 'it displays all auditoriums names' do
     auditorium_1 = Auditorium.create( name: "North 1",
                                       capacity: 50,
                                       is_imax_auditorium: true)
@@ -17,13 +17,12 @@ RSpec.describe 'auditoriums index page', type: :feature do
     expect(page).to have_content(auditorium_2.name)
   end
 
-  it 'has link and redirects to auditoriums/new' do
+  it 'it has link and redirects to auditoriums/new' do
     visit 'auditoriums'
 
     expect(page).to have_link(href: '/auditoriums/new')
 
     click_link 'New Auditorium'
-    save_and_open_page
 
     expect(page).to have_current_path('/auditoriums/new')
   end
@@ -37,7 +36,6 @@ RSpec.describe 'auditoriums index page', type: :feature do
     expect(page).to have_link(href: "/auditoriums/#{auditorium_1.id}")
 
     click_link 'North 1'
-    save_and_open_page
 
     expect(page).to have_link(href: '/auditoriums')
     expect(page).to have_content("Auditorium Index")
