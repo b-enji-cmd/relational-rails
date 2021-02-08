@@ -1,9 +1,9 @@
-<a href="/">Back to index</a>
-<h1>All Employees</h1>
+<a href="/theaters">Back to index</a>
+<a href="/theaters/<%= @theater.id%>/employees/new">New Employee</a>
+<h1>Employees</h1>
 
 <% @employees.each do |employee| %>
 	<h3><a href="/employees/<%= employee.id%>"><%= employee.name%></a></h3>
 	<p>Full time?: <%= employee.is_full_time%></p>
 	<p>Hours Worked: <%= employee.hours_worked%></p>
-	<p>Theater ID: <%= employee.theater_id%></p>
 <% end %>

@@ -3,22 +3,6 @@ class EmployeesController < ApplicationController
 		@employees = Employee.all
 	end
 
-	def new
-		
-	end
-
-	def create
-		employee = Employee.new({
-			name: params[:employee][:name],
-			is_full_time: params[:employee][:is_full_time]||false,
-			hours_worked: params[:employee][:hours_worked]
-		})
-
-		employee.save
-
-		redirect_to '/employees'
-	end
-
 	def show
 		@employee = Employee.find(params[:id])
 	end
