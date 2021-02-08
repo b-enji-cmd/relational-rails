@@ -15,13 +15,13 @@ Rails.application.routes.draw do
 
   get '/employees', to: 'employees#index'
   get '/employees/:id', to: 'employees#show'
-  get '/theaters/:id/employees', to: 'employees#index'
-  get '/theaters/:id/employees/new', to: 'employees#new'
-  get '/employees/:id/edit', to: 'employee#edit'
+  get '/theaters/:id/employees', to: 'theater_employees#index'
+  get '/theaters/:id/employees/new', to: 'theater_employees#new'
+  get '/employees/:id/edit', to: 'employees#edit'
 
   post '/theaters', to: 'theaters#create'
   post '/auditoriums', to: 'auditoriums#create'
-  post '/employees', to: 'employees#create'
+  post '/theaters/:id/employees', to: 'theater_employees#create'
 
   patch '/auditoriums/:id', to: 'auditoriums#update'
   patch '/theaters/:id', to: 'theaters#update'
