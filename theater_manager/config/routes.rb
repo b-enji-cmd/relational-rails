@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/', to: 'welcome#index'
+
   get	'/theaters', to: 'theaters#index'
   get '/theaters/new', to: 'theaters#new'
   get '/theaters/:id', to: 'theaters#show'
@@ -19,19 +20,25 @@ Rails.application.routes.draw do
   get '/movies/:id', to: 'movies#show'
   get '/movies/:id/edit', to: 'movies#edit'
 
+  get '/employees', to: 'employees#index'
+  get '/employees/:id', to: 'employees#show'
+  get '/theaters/:id/employees', to: 'theater_employees#index'
+  get '/theaters/:id/employees/new', to: 'theater_employees#new'
+  get '/employees/:id/edit', to: 'employees#edit'
 
   post '/theaters', to: 'theaters#create'
   post '/auditoriums', to: 'auditoriums#create'
-
+  post '/theaters/:id/employees', to: 'theater_employees#create'
   post '/auditoriums/:id/movies', to: 'auditorium_movies#create'
 
   patch '/auditoriums/:id', to: 'auditoriums#update'
   patch '/theaters/:id', to: 'theaters#update'
-
+  patch '/employees/:id', to: 'employees#update'
   patch '/movies/:id', to: 'movies#update'
 
   delete '/theaters/:id', to: 'theaters#destroy'
   delete '/auditoriums/:id', to: 'auditoriums#destroy'
+  delete '/employees/:id', to: 'employees#destroy'
 
   delete '/movies/:id', to: 'movies#destroy'
 
