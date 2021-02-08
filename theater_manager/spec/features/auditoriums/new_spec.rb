@@ -63,5 +63,8 @@ RSpec.describe 'When I visit auditoriums index', type: :feature do
     click_button('Create Auditorium')
 
     expect(page).to have_content('South 2')
+    click_link("South 2")
+
+    expect(page).to have_content('IMAX Auditorium: No')
   end
 end

@@ -1,0 +1,11 @@
+<a href="/movies">Movie Index</a>
+
+<h2><%= @movie.name %></h2>
+<p>Movie Starts: <%= @movie.showtime_date.strftime("%a %b %d %Y") %> <%= @movie.showtime_start.strftime("%I:%M %p") %></p>
+<p>Duration: <%= @movie.duration %></p>
+<p>Ticket Cost: $<%= @movie.ticket_cost.to_s.length == 4 ? "#{@movie.ticket_cost}0" : @movie.ticket_cost %></p>
+<p>Rated R: <%= @movie.is_rated_r ? "Yes" : "No" %></p>
+<p>Auditorium: <%= Auditorium.find(@movie.auditorium_id).name %></p>
+
+<a href="/movies/<%= @movie.id %>/edit">Edit Movie</a><br><br>
+<%= link_to 'Delete Movie', "/movies/#{@movie.id}", method: :delete %><br><br><br>

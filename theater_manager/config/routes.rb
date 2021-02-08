@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   get '/auditoriums/:id', to: 'auditoriums#show'
   get '/auditoriums/:id/edit', to: 'auditoriums#edit'
 
+  get '/auditoriums/:id/movies', to: 'auditorium_movies#index'
+  get '/auditoriums/:id/movies/new', to: 'auditorium_movies#new'
+
+  get '/movies', to: 'movies#index'
+  get '/movies/:id', to: 'movies#show'
+  get '/movies/:id/edit', to: 'movies#edit'
+
   get '/employees', to: 'employees#index'
   get '/employees/:id', to: 'employees#show'
   get '/theaters/:id/employees', to: 'theater_employees#index'
@@ -22,14 +29,18 @@ Rails.application.routes.draw do
   post '/theaters', to: 'theaters#create'
   post '/auditoriums', to: 'auditoriums#create'
   post '/theaters/:id/employees', to: 'theater_employees#create'
+  post '/auditoriums/:id/movies', to: 'auditorium_movies#create'
 
   patch '/auditoriums/:id', to: 'auditoriums#update'
   patch '/theaters/:id', to: 'theaters#update'
   patch '/employees/:id', to: 'employees#update'
+  patch '/movies/:id', to: 'movies#update'
 
   delete '/theaters/:id', to: 'theaters#destroy'
   delete '/auditoriums/:id', to: 'auditoriums#destroy'
   delete '/employees/:id', to: 'employees#destroy'
+
+  delete '/movies/:id', to: 'movies#destroy'
 
 end
 

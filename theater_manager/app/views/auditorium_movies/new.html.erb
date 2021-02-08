@@ -1,0 +1,22 @@
+<form action="/auditoriums/<%= @auditorium.id %>/movies" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Create a New Movie:</p>
+    <label for="name">Name: <span aria-hidden="true" style="color:red;">*</span></label>
+    <input aria-describedby="required-description" name="movie[name]" type="text" /><br><br>
+    <label for="name">Showtime Date: <span aria-hidden="true" style="color:red;">*</span></label>
+    <input aria-describedby="required-description" name="movie[showtime_date]" type="date" /><br><br>
+    <label for="name">Showtime Start: <span aria-hidden="true" style="color:red;">*</span></label>
+    <input aria-describedby="required-description" name="movie[showtime_start]" type="time" /><br><br>
+    <label for="name">Duration: <span aria-hidden="true" style="color:red;">*</span></label>
+    <input aria-describedby="required-description" name="movie[duration]" type="number" /><br><br>
+    <label for="name">Ticket Cost: <span aria-hidden="true" style="color:red;">*</span></label>
+    <input aria-describedby="required-description" name="movie[ticket_cost]" type="number" /><br><br>
+    Rated R: <input type='radio' id="true" name='movie[is_rated_r]' value="true"></input>
+                <label for "true">Yes</label>
+                <input type='radio' id="false" name='movie[is_rated_r]' value="false"></input>
+                <label for "false">No</label>
+                <br><br>
+    Auditorium: <input type='text' name='movie[auditorium_id]' value="<%= @auditorium.id %>" readonly style="background-color:lightgray;"/><br/>
+    <br><br>
+  <input type='submit' value='Create Movie'/>
+</form>

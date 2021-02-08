@@ -7,11 +7,7 @@ class AuditoriumsController < ApplicationController
   end
 
   def create
-    auditorium = Auditorium.new({
-      name: params[:auditorium][:name],
-      capacity: params[:auditorium][:capacity],
-      is_imax_auditorium: params[:auditorium][:is_imax_auditorium] || false
-      })
+    auditorium = Auditorium.new(auditorium_params)
 
       if auditorium.save
         redirect_to '/auditoriums'
@@ -32,15 +28,13 @@ class AuditoriumsController < ApplicationController
   def update
     auditorium = Auditorium.find(params[:id])
 
-    auditorium.update({
-      name: params[:auditorium][:name],
-      capacity: params[:auditorium][:capacity],
-      is_imax_auditorium: params[:auditorium][:is_imax_auditorium]
-      })
+    auditorium_params.each do |key, value|
+      if !value.empty?
+        auditorium.update!({:"#{key}" => value})
+      end
+    end
 
-      auditorium.save
-
-      redirect_to "/auditoriums/#{auditorium.id}"
+    redirect_to "/auditoriums/#{auditorium.id}"
   end
 
   def destroy
@@ -48,9 +42,9 @@ class AuditoriumsController < ApplicationController
 		redirect_to '/auditoriums'
   end
 
-  # private
-  #
-  # def auditorium_params
-  #   params.require(:auditorium).permit(:name, :capacity, :is_imax_auditorium)
-  # end
+  private
+
+  def auditorium_params
+    params.require(:auditorium).permit(:name, :capacity, :is_imax_auditorium)
+  end
 end
