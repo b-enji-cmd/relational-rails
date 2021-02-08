@@ -15,7 +15,6 @@ class TheatersController < ApplicationController
 			is_open: params[:theater][:is_open]||false,
 			capacity: params[:theater][:capacity]
 		})
-
 		theater.save
 
 		redirect_to '/theaters'
