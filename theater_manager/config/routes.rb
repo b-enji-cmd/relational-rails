@@ -11,14 +11,19 @@ Rails.application.routes.draw do
   get '/auditoriums/new', to: 'auditoriums#new'
   get '/auditoriums/:id', to: 'auditoriums#show'
   get '/auditoriums/:id/edit', to: 'auditoriums#edit'
-  get '/auditoriums/:id/movies', to: 'auditoriums#movies'
+
+  get '/auditoriums/:id/movies', to: 'auditorium_movies#index'
+  get '/auditoriums/:id/movies/new', to: 'auditorium_movies#new'
 
   get '/movies', to: 'movies#index'
   get '/movies/:id', to: 'movies#show'
   get '/movies/:id/edit', to: 'movies#edit'
 
+
   post '/theaters', to: 'theaters#create'
   post '/auditoriums', to: 'auditoriums#create'
+
+  post '/auditoriums/:id/movies', to: 'auditorium_movies#create'
 
   patch '/auditoriums/:id', to: 'auditoriums#update'
   patch '/theaters/:id', to: 'theaters#update'
