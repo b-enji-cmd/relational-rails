@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Movie, type: :model do
   describe 'relationships' do
     it { should belong_to :auditorium }
-
   end
 
   describe 'validations' do
