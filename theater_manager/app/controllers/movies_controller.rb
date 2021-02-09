@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    # require "pry"; binding.pry
     @movies = Movie.where('is_rated_r = true')
   end
 

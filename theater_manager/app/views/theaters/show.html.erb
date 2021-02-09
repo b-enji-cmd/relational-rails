@@ -3,6 +3,7 @@
 <p>Location: <%= @theater.location %></p>
 <p>Open: <%= @theater.is_open %></p>
 <p>Maximum Capacity: <%= @theater.capacity %></p>
+<p>Employee Total: <%= @theater.employees.length %></p>
 <a href="/theaters/<%= @theater.id%>/edit">Edit</a>
 <%= link_to 'delete', "/theaters/#{@theater.id}", method: :delete %>
 <a href="/theaters/<%= @theater.id%>/employees">Employees</a>
