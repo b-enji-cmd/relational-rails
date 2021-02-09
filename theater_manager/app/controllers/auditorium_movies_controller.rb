@@ -9,11 +9,11 @@ class AuditoriumMoviesController < ApplicationController
   end
 
   def create
-    auditorium = Auditorium.find(params[:id])
-    movie = auditorium.movies.new(movie_params)
+    @auditorium = Auditorium.find(params[:id])
+    movie = @auditorium.movies.new(movie_params)
 
     if movie.save
-      redirect_to "/auditoriums/#{auditorium.id}/movies"
+      redirect_to "/auditoriums/#{@auditorium.id}/movies"
     else
       flash[:notice] = 'Movie not created: Required information missing.'
       render :new
