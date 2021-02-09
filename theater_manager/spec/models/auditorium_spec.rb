@@ -15,7 +15,7 @@ RSpec.describe Auditorium, type: :model do
       auditorium_1 = Auditorium.create( name: "North 1",
                                         capacity: 50,
                                         is_imax_auditorium: true)
-      # sleep(2)
+
       auditorium_2 = Auditorium.create( name: "North 2",
                                         capacity: 100,
                                         is_imax_auditorium: true)
