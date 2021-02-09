@@ -1,8 +1,8 @@
 <a href="/theaters">Back to index</a>
-<p><%= @theater.name %></p>
-<p><%= @theater.location %></p>
-<p><%= @theater.is_open %></p>
-<p><%= @theater.capacity %></p>
+<p>Name: <%= @theater.name %></p>
+<p>Location: <%= @theater.location %></p>
+<p>Open: <%= @theater.is_open %></p>
+<p>Maximum Capacity: <%= @theater.capacity %></p>
 <a href="/theaters/<%= @theater.id%>/edit">Edit</a>
 <%= link_to 'delete', "/theaters/#{@theater.id}", method: :delete %>
 <a href="/theaters/<%= @theater.id%>/employees">Employees</a>
