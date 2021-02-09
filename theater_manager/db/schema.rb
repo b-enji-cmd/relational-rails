@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_185138) do
+ActiveRecord::Schema.define(version: 2021_02_09_052906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 2021_02_05_185138) do
     t.bigint "theater_id"
     t.index ["theater_id"], name: "index_employees_on_theater_id"
   end
-  
+
   create_table "movies", force: :cascade do |t|
     t.string "name"
     t.time "showtime_start"
     t.integer "duration"
     t.float "ticket_cost"
-    t.boolean "is_rated_r"
+    t.boolean "is_rated_r", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "auditorium_id"
@@ -55,6 +55,6 @@ ActiveRecord::Schema.define(version: 2021_02_05_185138) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "movies", "auditoria"
   add_foreign_key "employees", "theaters"
+  add_foreign_key "movies", "auditoria"
 end
