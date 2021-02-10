@@ -54,5 +54,51 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
       expect(page).to have_content("Delete Auditorium")
       expect(page).to have_link(href: "/auditoriums/#{auditorium_1.id}")
     end
+
+    it 'displays an edit link next to each element' do
+      auditorium_1 = Auditorium.create( name: "North 1",
+                                        capacity: 50,
+                                        is_imax_auditorium: true)
+      auditorium_2 = Auditorium.create( name: "North 2",
+                                        capacity: 80,
+                                        is_imax_auditorium: true)
+
+      visit 'auditoriums'
+      expect(page).to have_link(href: "/auditoriums/#{auditorium_1.id}/edit")
+      expect(page).to have_link(href: "/auditoriums/#{auditorium_2.id}/edit")
+
+      click_link("Edit North 1")
+
+      expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/edit")
+      expect(page).to have_content("Editing North 1 Auditorium")
+      fill_in('auditorium[name]', with: 'North 4')
+      fill_in('auditorium[capacity]', with: '25')
+      choose('auditorium_is_imax_auditorium_false')
+      click_button('Update Auditorium')
+
+      expect(current_path).to eq("/auditoriums/#{auditorium_1.id}")
+      expect(page).to have_content("North 4")
+      expect(page).to have_content("Capacity: 25")
+      expect(page).to have_content("IMAX Auditorium: No")
+    end
+    it 'displays a delete button next to each element to destroy it' do
+      auditorium_1 = Auditorium.create( name: "North 1",
+                                        capacity: 50,
+                                        is_imax_auditorium: true)
+      auditorium_2 = Auditorium.create( name: "North 2",
+                                        capacity: 80,
+                                        is_imax_auditorium: true)
+
+      visit 'auditoriums'
+
+      expect(page).to have_button("Delete #{auditorium_1.name}")
+      expect(page).to have_button("Delete #{auditorium_2.name}")
+
+      click_button("Delete North 1")
+
+      expect(page).not_to have_content("North 1")
+      expect(current_path).to eq("/auditoriums")
+      
+    end
   end
 end
