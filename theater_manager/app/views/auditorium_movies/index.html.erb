@@ -5,9 +5,9 @@
 
 </h4>
 
-<form action="/auditoriums/<%= @auditorium.id %>/movies" method="get" accept-charset="utf-8">
+<form action="/auditoriums/<%= @auditorium.id %>/movies?ticket_cost=num" method="get" accept-charset="utf-8">
 	<label>Ticket Cost: <input type="number" name="movie[ticket_cost]" id="ticket_cost_filter"></label>
-  <input type='submit' value="Only return records with ticket cost more than" id="filter_button"/>
+  <input type='submit' value="Only return records with ticket cost more than " id="filter_button"/>
 </form>
 
 <h1>All Movies in Auditorium: <%= @auditorium.name %></h1>
@@ -24,10 +24,12 @@
 <script>
     const value = document.getElementById("ticket_cost_filter")
       value.addEventListener("input", function () {
-      const field_value = document.getElementById("ticket_cost_filter").value
-      const button = document.getElementById("filter_button").value
+      field_value = document.getElementById("ticket_cost_filter").value
+      button = document.getElementById("filter_button").value
+
     if (field_value > 0) {
-      document.getElementById("filter_button").value = '${button} ${field_value}'
+    	document.getElementById("filter_button").value = `${button} ` + field_value
+   
     }
   });
 </script>
