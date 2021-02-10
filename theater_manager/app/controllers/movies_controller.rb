@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.where('is_rated_r = true')
   end
 
   def show
@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def destroy

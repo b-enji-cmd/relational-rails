@@ -1,7 +1,7 @@
 class TheatersController < ApplicationController
 
 	def index
-		@theaters = Theater.all
+		@theaters = Theater.order_created_at_desc
 	end
 
 	def new

@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
 	def index
-		@employees = Employee.all
+		@employees = Employee.where('is_full_time = true')
 	end
 
 	def show

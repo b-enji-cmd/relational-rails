@@ -1,6 +1,6 @@
 class AuditoriumsController < ApplicationController
   def index
-    @auditoriums = Auditorium.all
+    @auditoriums = Auditorium.order_created_at_desc
   end
 
   def new

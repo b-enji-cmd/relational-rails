@@ -1,7 +1,15 @@
 class AuditoriumMoviesController < ApplicationController
   def index
     @auditorium = Auditorium.find(params[:id])
-    @movies = @auditorium.movies
+
+    if params[:movie]
+      ticket_cost_filter = params[:movie][:ticket_cost]
+      @movies = @auditorium.filtered_by_cost(ticket_cost_filter)
+    elsif params[:alphabet]
+      @movies = @auditorium.sort_by_name
+    else
+      @movies = @auditorium.movies
+    end
   end
 
   def new
@@ -31,3 +39,8 @@ class AuditoriumMoviesController < ApplicationController
                                   :is_rated_r)
   end
 end
+=begin
+
+
+
+=end

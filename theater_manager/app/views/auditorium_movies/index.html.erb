@@ -2,10 +2,16 @@
   <a href="/auditoriums">Auditorium Index</a>
   <a href="/movies">Movie Index</a>
   <a href="/auditoriums/<%= @auditorium.id %>/movies/new">New Movie</a>
+
 </h4>
 
-<h1>All Movies in Auditorium: <%= @auditorium.name %></h1>
+<form action="/auditoriums/<%= @auditorium.id %>/movies?ticket_cost=num" method="get" accept-charset="utf-8">
+	<label>Ticket Cost: <input type="number" name="movie[ticket_cost]" id="ticket_cost_filter"></label>
+  <input type='submit' value="Only return records with ticket cost more than " id="filter_button"/>
+</form>
 
+<h1>All Movies in Auditorium: <%= @auditorium.name %></h1>
+ <%= link_to 'Sort', "/auditoriums/#{@auditorium.id}/movies?alphabet=sort", method: :get %>
 <% @movies.each do |movie| %>
   <h3><a href="/movies/<%= movie.id %>"><%= movie.name %></a></h3>
   <p>Movie Starts: <%= movie.showtime_date.strftime("%a %b %d %Y") %> <%= movie.showtime_start.strftime("%I:%M %p") %></p>
@@ -14,3 +20,20 @@
   <p>Rated R: <%= movie.is_rated_r ? "Yes" : "No" %></p>
   <p>Auditorium: <%= @auditorium.name %></p>
 <% end %>
+
+<script>
+    const value = document.getElementById("ticket_cost_filter")
+      value.addEventListener("input", function () {
+      field_value = document.getElementById("ticket_cost_filter").value
+      button = document.getElementById("filter_button").value
+
+    if (field_value > 0) {
+    	document.getElementById("filter_button").value = `${button} ` + field_value
+   
+    }
+  });
+</script>
+
+<!-- link_to url path/filter 
+need a new route that uses the parent child action of index
+with get method -->

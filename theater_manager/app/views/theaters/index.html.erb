@@ -5,4 +5,5 @@
 
 <% @theaters.each do |theater| %>
 	<h3><a href="/theaters/<%= theater.id%>"><%= theater.name%></a></h3>
+	<p>Created: <%= theater.created_at.strftime("%m/%d/%Y %I:%M %p")%></p>
 <% end %>

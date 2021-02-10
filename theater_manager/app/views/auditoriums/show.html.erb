@@ -3,6 +3,7 @@
 <h2><%= @auditorium.name %></h2>
 <p>Capacity: <%= @auditorium.capacity %></p>
 <p>IMAX Auditorium: <%= @auditorium.is_imax_auditorium ? "Yes" : "No" %></p>
+<p>Movies Total: <%= @auditorium.movie_count %></p>
 
 <a href="/auditoriums/<%= @auditorium.id %>/edit">Edit Auditorium</a><br><br>
 <%= link_to 'Delete Auditorium', "/auditoriums/#{@auditorium.id}", method: :delete %><br><br><br>
