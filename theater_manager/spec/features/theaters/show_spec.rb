@@ -7,16 +7,11 @@ RSpec.describe 'when I visit a theater id' do
 															location: 'Denver',
 															capacity: 200)
 
-		theater_2 = Theater.create(name: 'United',
-															is_open: true,
-															location: 'Denver',
-															capacity: 200)
-
 		employee_1 = theater_1.employees.create(name: 'Mark',
 																is_full_time: true,
 																hours_worked: 90)
 		employee_2 = theater_1.employees.create(name: 'Greg',
-																is_full_time: false,
+																is_full_time: true,
 																hours_worked: 15)
 
 		visit '/theaters'

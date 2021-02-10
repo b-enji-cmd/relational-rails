@@ -71,10 +71,10 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
         click_link("Movies")
 
         fill_in('movie[ticket_cost]', with: "11")
-        #click_button("Only return records with a ticket cost more than 11")
-       # expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies")
-        #expect(page).to have_content("Ticket Cost: $12.00")
-        #expect(page).not_to have_content("Ticket Cost: $10.00")
+        click_button("filter_button")
+        expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies")
+        expect(page).to have_content("Ticket Cost: $12.00")
+        expect(page).not_to have_content("Ticket Cost: $10.00")
       end
 
       it 'has a link to filter by alphabetical order' do
@@ -85,19 +85,25 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
                                           capacity: 100,
                                           is_imax_auditorium: true)
 
-        movie_1 = auditorium_1.movies.create!( name: "B",
+        movie_1 = auditorium_1.movies.create!( name: "MOVIE_B",
                                               showtime_date: "2021-02-12",
                                               showtime_start: "13:00:00",
                                               duration: 110,
                                               ticket_cost: 10.00,
                                               is_rated_r: true)
-        movie_2 = auditorium_1.movies.create!( name: "A",
+        movie_2 = auditorium_1.movies.create!( name: "MOVIE_A",
                                               showtime_date: "2021-02-12",
                                               showtime_start: "15:15:00",
                                               duration: 110,
                                               ticket_cost: 12.00,
                                               is_rated_r: true)
-        movie_3 = auditorium_2.movies.create!( name: "Star Wars: A New Hope",
+        movie_3 = auditorium_1.movies.create!( name: "MOVIE_C",
+                                              showtime_date: "2021-02-12",
+                                              showtime_start: "16:00:00",
+                                              duration: 108,
+                                              ticket_cost: 12.00,
+                                              is_rated_r: false)
+        movie_4 = auditorium_2.movies.create!( name: "D",
                                               showtime_date: "2021-02-12",
                                               showtime_start: "16:00:00",
                                               duration: 108,
@@ -108,10 +114,15 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
         click_link("Movies")
         
       
-        expect(page).to have_link(href: "/auditoriums/#{auditorium_1.id}/movies")
-         
-        click_link("Sort Movies")
-        expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies")
+        #expect(page).to have_link(href: "/auditoriums/#{auditorium_1.id}/movies")
+
+        #expect(page).to have_text(/ \wMOVIE_B+MOVIE_A+MOVIE_C/)
+
+        # click_link("Sort")
+        #expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies")
+        # expect(page).to have_text(/A+B+C/)
+
+        #expect(page.all('.movie')[0]).to have_link(href: "movies/#{movie_2.id}")
         
       
       end
