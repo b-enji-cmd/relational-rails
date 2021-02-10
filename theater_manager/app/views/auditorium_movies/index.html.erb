@@ -2,6 +2,7 @@
   <a href="/auditoriums">Auditorium Index</a>
   <a href="/movies">Movie Index</a>
   <a href="/auditoriums/<%= @auditorium.id %>/movies/new">New Movie</a>
+
 </h4>
 
 <form action="/auditoriums/<%= @auditorium.id %>/movies" method="get" accept-charset="utf-8">
@@ -10,7 +11,7 @@
 </form>
 
 <h1>All Movies in Auditorium: <%= @auditorium.name %></h1>
-
+ <%= link_to 'Sort', "/auditoriums/#{@auditorium.id}/movies?alphabet=sort", method: :get %>
 <% @movies.each do |movie| %>
   <h3><a href="/movies/<%= movie.id %>"><%= movie.name %></a></h3>
   <p>Movie Starts: <%= movie.showtime_date.strftime("%a %b %d %Y") %> <%= movie.showtime_start.strftime("%I:%M %p") %></p>
@@ -30,3 +31,7 @@
     }
   });
 </script>
+
+<!-- link_to url path/filter 
+need a new route that uses the parent child action of index
+with get method -->

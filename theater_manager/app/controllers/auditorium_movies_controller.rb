@@ -1,6 +1,7 @@
 class AuditoriumMoviesController < ApplicationController
   def index
     @auditorium = Auditorium.find(params[:id])
+    binding.pry
     if params[:movie]
       ticket_cost_filter = params[:movie][:ticket_cost]
       @movies = @auditorium.movies.where("ticket_cost >= #{ticket_cost_filter}")
@@ -36,3 +37,8 @@ class AuditoriumMoviesController < ApplicationController
                                   :is_rated_r)
   end
 end
+=begin
+
+
+
+=end
