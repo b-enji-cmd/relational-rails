@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'When I visit the employees index page', type: :feature do
+RSpec.describe 'When I visit the theater employees index page', type: :feature do
   describe 'shows all employees' do
     it 'that are full time and the data for each' do
       theater_1 = Theater.create!(name: 'Harkins',
@@ -17,7 +17,7 @@ RSpec.describe 'When I visit the employees index page', type: :feature do
                                               hours_worked: 15)
      
 
-      visit '/employees'
+      visit "theaters/#{theater_1.id}/employees"
 
       expect(page).to have_content(employee_1.name)
       expect(page).to have_content(employee_1.hours_worked)
@@ -39,7 +39,7 @@ RSpec.describe 'When I visit the employees index page', type: :feature do
                                               is_full_time: true,
                                               hours_worked: 15)
 
-      visit 'employees'
+      visit "theaters/#{theater_1.id}/employees"
 
       expect(page).to have_link(href: "/employees/#{employee_1.id}/edit")
       expect(page).to have_link(href: "/employees/#{employee_2.id}/edit")
@@ -53,8 +53,6 @@ RSpec.describe 'When I visit the employees index page', type: :feature do
 
       expect(current_path).to eq("/employees/#{employee_1.id}")
       expect(page).to have_content("Greg")
-
-
 
     end
   end

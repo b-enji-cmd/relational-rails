@@ -100,5 +100,6 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
       expect(current_path).to eq("/auditoriums")
       
     end
+
   end
 end
