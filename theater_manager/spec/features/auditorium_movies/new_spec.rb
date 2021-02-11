@@ -11,7 +11,7 @@ RSpec.describe 'When I visit auditoriums index', type: :feature do
         visit "/auditoriums"
         click_link("East 1")
 
-        click_link("Movies")
+        click_link("auditorium_movie_index")
         click_link("New Movie")
 
         expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies/new")
@@ -41,7 +41,7 @@ RSpec.describe 'When I visit auditoriums index', type: :feature do
         visit "/auditoriums"
         click_link("East 1")
 
-        click_link("Movies")
+        click_link("auditorium_movie_index")
         click_link("New Movie")
 
         expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies/new")
@@ -94,7 +94,7 @@ RSpec.describe 'When I visit auditoriums index', type: :feature do
         visit "/auditoriums"
         click_link("East 1")
 
-        click_link("Movies")
+        click_link("auditorium_movie_index")
         click_link("New Movie")
 
         expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies/new")

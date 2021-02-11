@@ -46,7 +46,7 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
       click_link 'North 1'
 
       expect(page).to have_link(href: '/auditoriums')
-      expect(page).to have_content("Auditorium Index")
+      expect(page).to have_link("Auditoriums")
       expect(page).to have_content("North 1")
       expect(page).to have_content("Capacity: 50")
       expect(page).to have_content("IMAX Auditorium: Yes")
@@ -98,7 +98,7 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
 
       expect(page).not_to have_content("North 1")
       expect(current_path).to eq("/auditoriums")
-      
+
     end
 
   end

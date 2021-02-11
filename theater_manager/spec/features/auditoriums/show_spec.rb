@@ -43,7 +43,7 @@ RSpec.describe 'When I visit auditorium index', type: :feature do
     expect(page).to have_link(href: "/auditoriums/#{auditorium_1.id}/edit")
     expect(page).to have_link(href: "/auditoriums/#{auditorium_1.id}")
 
-    click_link("Auditorium Index")
+    click_link("Auditoriums")
 
     expect(current_path).to eq("/auditoriums")
 
@@ -71,7 +71,7 @@ RSpec.describe 'When I visit auditorium index', type: :feature do
 
       expect(current_path).to eq("/auditoriums/#{auditorium_1.id}")
 
-      click_link("Auditorium Index")
+      click_link("Auditoriums")
 
       expect(current_path).to eq("/auditoriums")
 
@@ -122,7 +122,7 @@ RSpec.describe 'When I visit auditorium index', type: :feature do
 
       expect(current_path).to eq("/auditoriums/#{auditorium_1.id}")
 
-      click_link("Movies")
+      click_link("auditorium_movie_index")
 
       expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies")
       expect(page).to have_content("The Big Lebowski")

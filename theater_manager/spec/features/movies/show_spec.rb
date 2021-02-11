@@ -71,7 +71,7 @@ RSpec.describe 'When I visit movies index', type: :feature do
                               showtime_start: "16:00:00",
                               duration: 108,
                               ticket_cost: 12.00,
-                              is_rated_r: false)
+                              is_rated_r: true)
 
       visit "/movies"
       click_link("Star Wars: A New Hope")
