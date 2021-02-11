@@ -1,8 +1,11 @@
+<h3><a href="/auditoriums/<%= @auditorium.id %>/movies/new">New Movie</a></h3>
+
 <br>
 <form action="/auditoriums/<%= @auditorium.id %>/movies?ticket_cost=num" method="get" accept-charset="utf-8">
 	<label>Ticket Cost: <input type="number" name="movie[ticket_cost]" id="ticket_cost_filter"></label>
   <input type='submit' value="Only return records with ticket cost more than " id="filter_button"/>
 </form>
+
 
 <h1>All Movies in Auditorium: <%= @auditorium.name %></h1>
  <h2 style="text-align:right;margin: 15px 15px 15px 15px;"><%= link_to 'Sort', "/auditoriums/#{@auditorium.id}/movies?alphabet=sort", method: :get %></h2>
@@ -29,7 +32,3 @@
     }
   });
 </script>
-
-<!-- link_to url path/filter
-need a new route that uses the parent child action of index
-with get method -->
