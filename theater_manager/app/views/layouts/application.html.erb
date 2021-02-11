@@ -9,11 +9,11 @@
     <%= javascript_include_tag 'application' %>
 
     <style type="text/css" media="screen">
-      
+
     </style>
   </head>
 
-  <body>
+  <body style="background-color:lightcyan">
     <nav class="navbar">
       <ul>
         <a href="/theaters">Theaters</a>
@@ -22,7 +22,7 @@
         <a href="/movies">Movies</a>
       </ul>
     </nav>
-    
+
     <% flash.each do |type, message| %>
       <p><%= message %></p>
     <% end %>

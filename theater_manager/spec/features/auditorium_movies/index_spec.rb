@@ -32,7 +32,7 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
 
         visit "/auditoriums"
         click_link("East 1")
-        click_link("Movies")
+        click_link("auditorium_movie_index")
 
         expect(page).to have_content(movie_1.name)
         expect(page).to have_content(movie_2.name)
@@ -68,7 +68,7 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
                                               is_rated_r: false)
         visit "/auditoriums"
         click_link("East 1")
-        click_link("Movies")
+        click_link("auditorium_movie_index")
 
         fill_in('movie[ticket_cost]', with: "11")
         click_button("filter_button")
@@ -102,18 +102,23 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
                                               showtime_start: "16:00:00",
                                               duration: 108,
                                               ticket_cost: 12.00,
-                                              is_rated_r: true)
 
+                                              is_rated_r: false)
+        movie_4 = auditorium_2.movies.create!( name: "MOVIE_D",
+                                              showtime_date: "2021-02-12",
+                                              showtime_start: "16:00:00",
+                                              duration: 108,
+                                              ticket_cost: 12.00,
+                                              is_rated_r: false)
         visit "/auditoriums"
         click_link("East 1")
-        click_link("Movies")
+        click_link("auditorium_movie_index")
+        # save_and_open_page
+        click_link("Sort")
 
-        
         expect(movie_2.name).to appear_before(movie_1.name)
         expect(movie_1.name).to appear_before(movie_3.name)
-        expect(movie_2.name).to appear_before(movie_1.name)
-        
-      
+
       end
 
       it 'displays an edit link next to each element' do
@@ -172,6 +177,7 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
         expect(page).to have_content("Rated R: No")
         expect(page).to have_content("Auditorium: East 1")
       end
+
       it 'has a button to delete the movie next to each element' do
         auditorium_1 = Auditorium.create( name: "East 1",
                                         capacity: 100,
@@ -208,8 +214,6 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
 
         expect(page).not_to have_content("The Rugrats")
         expect(current_path).to eq("/movies")
-
-
       end
     end
   end

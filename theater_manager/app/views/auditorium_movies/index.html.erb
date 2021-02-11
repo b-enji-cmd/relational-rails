@@ -1,26 +1,20 @@
-<h4>
-  <a href="/auditoriums">Auditorium Index</a>
-  <a href="/movies">Movie Index</a>
-  <a href="/auditoriums/<%= @auditorium.id %>/movies/new">New Movie</a>
-
-</h4>
-
+<br>
 <form action="/auditoriums/<%= @auditorium.id %>/movies?ticket_cost=num" method="get" accept-charset="utf-8">
 	<label>Ticket Cost: <input type="number" name="movie[ticket_cost]" id="ticket_cost_filter"></label>
   <input type='submit' value="Only return records with ticket cost more than " id="filter_button"/>
 </form>
 
 <h1>All Movies in Auditorium: <%= @auditorium.name %></h1>
- <%= link_to 'Sort', "/auditoriums/#{@auditorium.id}/movies?alphabet=sort", method: :get %>
+ <h2 style="text-align:right;margin: 15px 15px 15px 15px;"><%= link_to 'Sort', "/auditoriums/#{@auditorium.id}/movies?alphabet=sort", method: :get %></h2>
 <% @movies.each do |movie| %>
-  <h3><a href="/movies/<%= movie.id %>"><%= movie.name %></a></h3>
+  <div class="div"><h3><a href="/movies/<%= movie.id %>"><%= movie.name %></a></h3>
   <p>Movie Starts: <%= movie.showtime_date.strftime("%a %b %d %Y") %> <%= movie.showtime_start.strftime("%I:%M %p") %></p>
   <p>Duration: <%= movie.duration %></p>
   <p>Ticket Cost: $<%= movie.ticket_cost.to_s.length == 4 ? "#{movie.ticket_cost}0" : movie.ticket_cost %></p>
   <p>Rated R: <%= movie.is_rated_r ? "Yes" : "No" %></p>
   <p>Auditorium: <%= @auditorium.name %></p>
-  <a href="/movies/<%= movie.id %>/edit">Edit <%= movie.name  %></a>
-  <%= button_to "Delete #{movie.name}", "/movies/#{movie.id}", method: :delete %>
+  <a href="/movies/<%= movie.id %>/edit">Edit <%= movie.name  %></a><br><br>
+  <%= button_to "Delete #{movie.name}", "/movies/#{movie.id}", method: :delete %></div>
 <% end %>
 
 <script>
@@ -31,11 +25,11 @@
 
     if (field_value > 0) {
     	document.getElementById("filter_button").value = `${button} ` + field_value
-   
+
     }
   });
 </script>
 
-<!-- link_to url path/filter 
+<!-- link_to url path/filter
 need a new route that uses the parent child action of index
 with get method -->

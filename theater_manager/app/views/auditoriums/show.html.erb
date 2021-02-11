@@ -8,4 +8,4 @@
 <a href="/auditoriums/<%= @auditorium.id %>/edit">Edit Auditorium</a><br><br>
 <%= link_to 'Delete Auditorium', "/auditoriums/#{@auditorium.id}", method: :delete %><br><br><br>
 
-<a href="/auditoriums/<%= @auditorium.id %>/movies">Movies</a>
+<a href="/auditoriums/<%= @auditorium.id %>/movies" id="auditorium_movie_index">Movies</a>
