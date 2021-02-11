@@ -1,11 +1,10 @@
-<a href="/">Back to index</a>
 <h1>All Theaters</h1>
-<a href="/theaters/new">New Theater</a>
+<h3><a href="/theaters/new">New Theater</a></h3>
 
 
 <% @theaters.each do |theater| %>
-	<h3><a href="/theaters/<%= theater.id%>"><%= theater.name%></a></h3>
+	<div class="div"><h3><a href="/theaters/<%= theater.id%>"><%= theater.name%></a></h3>
 	<p>Created: <%= theater.created_at.strftime("%m/%d/%Y %I:%M %p")%></p>
 	<a href="/theaters/<%= theater.id%>/edit">Edit <%= theater.name  %></a><br><br>
-	<%= button_to "Delete #{theater.name}", "/theaters/#{theater.id}", method: :delete %>
+	<%= button_to "Delete #{theater.name}", "/theaters/#{theater.id}", method: :delete %></div>
 <% end %>

@@ -1,11 +1,10 @@
-<a href="/">Back to index</a>
 <h1>All Employees</h1>
 
 <% @employees.each do |employee| %>
-	<h3><a href="/employees/<%= employee.id%>"><%= employee.name%></a></h3>
+	<div class="div"><h3><a href="/employees/<%= employee.id%>"><%= employee.name%></a></h3>
 	<p>Full time?: <%= employee.is_full_time%></p>
 	<p>Hours Worked: <%= employee.hours_worked%></p>
 	<p>Theater ID: <%= employee.theater_id%></p>
-	<a href="/employees/<%= employee.id %>/edit">Edit <%= employee.name  %></a>
-	<%= button_to "Delete #{employee.name}", "/employees/#{employee.id}", method: :delete %>
+	<a href="/employees/<%= employee.id %>/edit">Edit <%= employee.name  %></a><br><br>
+	<%= button_to "Delete #{employee.name}", "/employees/#{employee.id}", method: :delete %></div>
 <% end %>
