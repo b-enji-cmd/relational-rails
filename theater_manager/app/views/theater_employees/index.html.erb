@@ -6,5 +6,5 @@
 	<h3><a href="/employees/<%= employee.id%>"><%= employee.name%></a></h3>
 	<p>Full time?: <%= employee.is_full_time%></p>
 	<p>Hours Worked: <%= employee.hours_worked%></p>
-
+	<a href="/employees/<%= employee.id %>/edit">Edit <%= employee.name  %></a>
 <% end %>

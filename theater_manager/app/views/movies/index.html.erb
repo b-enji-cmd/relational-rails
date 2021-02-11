@@ -7,4 +7,6 @@
   <p>Ticket Cost: $<%= movie.ticket_cost.to_s.length == 4 ? "#{movie.ticket_cost}0" : movie.ticket_cost %></p>
   <p>Rated R: <%= movie.is_rated_r ? "Yes" : "No" %></p>
   <p>Auditorium: <%= Auditorium.find(movie.auditorium_id).name %></p>
+  <a href="/movies/<%= movie.id %>/edit">Edit <%= movie.name  %></a>
+  <%= button_to "Delete #{movie.name}", "/movies/#{movie.id}", method: :delete %>
 <% end %>

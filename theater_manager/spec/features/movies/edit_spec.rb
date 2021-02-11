@@ -31,7 +31,6 @@ RSpec.describe 'When I visit movie index', type: :feature do
       fill_in('movie[showtime_start]', with: time)
       fill_in('movie[duration]', with: '120')
       fill_in('movie[ticket_cost]', with: '11.00')
-      choose('movie_is_rated_r_false')
       click_button('Update Movie')
 
       expect(current_path).to eq("/movies/#{movie_1.id}")
@@ -39,10 +38,10 @@ RSpec.describe 'When I visit movie index', type: :feature do
       expect(page).to have_content("Movie Starts: #{date} #{display_time}")
       expect(page).to have_content("Duration: 120")
       expect(page).to have_content("Ticket Cost: $11.00")
-      expect(page).to have_content("Rated R: No")
       expect(page).to have_content("Auditorium: East 1")
 
       visit "/movies"
+      
 
       click_link("The Big Chill")
       click_link("Edit Movie")
@@ -91,7 +90,6 @@ RSpec.describe 'When I visit movie index', type: :feature do
       fill_in('movie[showtime_start]', with: '')
       fill_in('movie[duration]', with: '')
       fill_in('movie[ticket_cost]', with: '')
-      choose('movie_is_rated_r_false')
       click_button('Update Movie')
 
       expect(current_path).to eq("/movies/#{movie_1.id}")
@@ -99,7 +97,6 @@ RSpec.describe 'When I visit movie index', type: :feature do
       expect(page).to have_content("Movie Starts: Fri Feb 12 2021 01:00 PM")
       expect(page).to have_content("Duration: 110")
       expect(page).to have_content("Ticket Cost: $10.00")
-      expect(page).to have_content("Rated R: No")
       expect(page).to have_content("Auditorium: East 1")
 
       visit "/movies"

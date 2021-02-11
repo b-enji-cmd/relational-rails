@@ -6,4 +6,5 @@
 	<p>Full time?: <%= employee.is_full_time%></p>
 	<p>Hours Worked: <%= employee.hours_worked%></p>
 	<p>Theater ID: <%= employee.theater_id%></p>
+	<a href="/employees/<%= employee.id %>/edit">Edit <%= employee.name  %></a>
 <% end %>
