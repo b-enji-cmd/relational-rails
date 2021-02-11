@@ -111,7 +111,7 @@ $ rails db:migrate
 ```sh
 $ rails db:seed
 ```
-1. Nagivate to `http://localhost:3000/`
+4. Nagivate to `http://localhost:3000/`
 
 
 
