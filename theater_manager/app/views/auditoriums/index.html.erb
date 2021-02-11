@@ -2,8 +2,8 @@
 
 <h1>All Auditoriums</h1>
 <% @auditoriums.each do |auditorium| %>
-  <h3><a href="/auditoriums/<%= auditorium.id %>"><%= auditorium.name %></a></h3>
+<div class="div"><h3><a href="/auditoriums/<%= auditorium.id %>"><%= auditorium.name %></a></h3>
   <p>Created: <%= auditorium.created_at.strftime("%m/%d/%Y %I:%M %p")%></p>
-  <a href="/auditoriums/<%= auditorium.id %>/edit">Edit <%= auditorium.name  %></a><br><br>
-  <%= button_to "Delete #{auditorium.name}", "/auditoriums/#{auditorium.id}", method: :delete %>
+  <a href="/auditoriums/<%= auditorium.id %>/edit">Edit <%= auditorium.name  %></a><br>
+  <%= button_to "Delete #{auditorium.name}", "/auditoriums/#{auditorium.id}", method: :delete %></div>
 <% end %>
