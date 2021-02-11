@@ -98,6 +98,13 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+1. Start rails server and migrate db
+```sh
+$ rails s
+$ rails db:create
+$ rails db:migrate
+```
+1. Nagivate to `http://localhost:3000/`
 
 
 
