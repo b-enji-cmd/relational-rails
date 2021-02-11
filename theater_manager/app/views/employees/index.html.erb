@@ -7,4 +7,5 @@
 	<p>Hours Worked: <%= employee.hours_worked%></p>
 	<p>Theater ID: <%= employee.theater_id%></p>
 	<a href="/employees/<%= employee.id %>/edit">Edit <%= employee.name  %></a>
+	<%= button_to "Delete #{employee.name}", "/employees/#{employee.id}", method: :delete %>
 <% end %>

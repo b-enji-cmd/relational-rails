@@ -2,9 +2,9 @@
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
 	<input type="hidden" name="_method" value="PATCH"/>
 	<p>Editing <%=@theater.name %></p>
-	<input type='text' name='theater[name]' value="<%= @theater.name%>"/><br/>
-  <input type='text' name='theater[location]' value="<%= @theater.location%>"/><br/>
-  <input type='checkbox' name='theater[is_open]' value="<%= @theater.is_open%>"/><br/>
-  <input type='number' name='theater[capacity]' value="<%= @theater.capacity%>"/><br/>
+	Name: <input type='text' name='theater[name]' value="<%= @theater.name%>"/><br/>
+  Location: <input type='text' name='theater[location]' value="<%= @theater.location%>"/><br/>
+  Open?: <input type='checkbox' name='theater[is_open]' value="<%= @theater.is_open%>"/><br/>
+  Maximum Capacity: <input type='number' name='theater[capacity]' value="<%= @theater.capacity%>"/><br/>
   <input type="submit" value="Update Theater"/>
 </form>
