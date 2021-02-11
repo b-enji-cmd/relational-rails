@@ -23,12 +23,6 @@ RSpec.describe 'When I visit the theaters index page', type: :feature do
 
 	end
 
-	it 'has a link to return to the welcome page' do
-		visit '/theaters'
-
-		expect(page).to have_link(href: '/')
-	end
-
 	it 'has a link to create a new theater' do
 		visit '/theaters'
 
@@ -93,7 +87,7 @@ RSpec.describe 'When I visit the theaters index page', type: :feature do
 
       expect(page).not_to have_content("Harkins")
       expect(current_path).to eq("/theaters")
-      
+
     end
 
 
