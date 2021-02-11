@@ -43,7 +43,7 @@ RSpec.describe 'When I visit auditorium index', type: :feature do
         expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies")
         expect(page).to have_content("The Big Lebowski")
 
-        click_link 'Auditorium Index'
+        click_link 'Auditoriums'
         click_link "East 1"
         click_link "Delete Auditorium"
 

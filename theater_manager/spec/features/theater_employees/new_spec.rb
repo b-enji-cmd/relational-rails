@@ -11,7 +11,7 @@ RSpec.describe 'When I visit theaters index', type: :feature do
 
 				visit 'theaters'
 				click_link("Harkins")
-				click_link("Employees")
+				click_link("Theater Employee Index")
 				click_link("New Employee")
 
 				expect(current_path).to eq("/theaters/#{theater_1.id}/employees/new")
