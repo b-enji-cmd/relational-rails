@@ -102,27 +102,16 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
                                               showtime_start: "16:00:00",
                                               duration: 108,
                                               ticket_cost: 12.00,
-                                              is_rated_r: false)
-        movie_4 = auditorium_2.movies.create!( name: "D",
-                                              showtime_date: "2021-02-12",
-                                              showtime_start: "16:00:00",
-                                              duration: 108,
-                                              ticket_cost: 12.00,
-                                              is_rated_r: false)
+                                              is_rated_r: true)
+
         visit "/auditoriums"
         click_link("East 1")
         click_link("Movies")
+
         
-      
-        #expect(page).to have_link(href: "/auditoriums/#{auditorium_1.id}/movies")
-
-        #expect(page).to have_text(/ \wMOVIE_B+MOVIE_A+MOVIE_C/)
-
-        # click_link("Sort")
-        #expect(current_path).to eq("/auditoriums/#{auditorium_1.id}/movies")
-        # expect(page).to have_text(/A+B+C/)
-
-        #expect(page.all('.movie')[0]).to have_link(href: "movies/#{movie_2.id}")
+        expect(movie_2.name).to appear_before(movie_1.name)
+        expect(movie_1.name).to appear_before(movie_3.name)
+        expect(movie_2.name).to appear_before(movie_1.name)
         
       
       end
