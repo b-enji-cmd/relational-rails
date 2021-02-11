@@ -2,7 +2,14 @@ class TheaterEmployeesController < ApplicationController
 
 	def index
 		@theater = Theater.find(params[:id])
-		@employees = @theater.employees
+		if params[:employee]
+      hours_worked_filter = params[:employee][:hours_worked]
+      @employees = @theater.filtered_by_hours(hours_worked_filter)
+    elsif params[:alphabet]
+      @employees = @theater.sort_by_name
+    else
+      @employees = @theater.employees
+    end
 	end
 
 	def new

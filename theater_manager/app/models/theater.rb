@@ -9,5 +9,13 @@ class Theater < ApplicationRecord
   def employee_count
   	employees.length
   end
+
+  def filtered_by_hours(hours_worked_filter)
+  	employees.where("hours_worked >= #{hours_worked_filter}")
+  end
+
+  def sort_by_name
+  	employees.order("lower(name)")
+  end
   
 end

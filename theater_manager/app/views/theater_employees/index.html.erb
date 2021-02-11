@@ -1,6 +1,15 @@
 <a href="/theaters">Back to index</a>
 <a href="/theaters/<%= @theater.id%>/employees/new">New Employee</a>
+
+
+<form action="/theaters/<%= @theater.id %>/employees?hours_worked=num" method="get" accept-charset="utf-8">
+	<label>Hours Worked: <input type="number" name="employee[hours_worked]" id="hours_worked_filter"></label>
+  <input type='submit' value="Only return records with hours worked more than " id="filter_button"/>
+</form>
+
+
 <h1>Employees</h1>
+<%= link_to 'Sort', "/theaters/#{@theater.id}/employees?alphabet=sort", method: :get %>
 
 <% @employees.each do |employee| %>
 	<h3><a href="/employees/<%= employee.id%>"><%= employee.name%></a></h3>
@@ -8,3 +17,16 @@
 	<p>Hours Worked: <%= employee.hours_worked%></p>
 	<a href="/employees/<%= employee.id %>/edit">Edit <%= employee.name  %></a>
 <% end %>
+
+<script>
+    const value = document.getElementById("ticket_cost_filter")
+      value.addEventListener("input", function () {
+      field_value = document.getElementById("ticket_cost_filter").value
+      button = document.getElementById("filter_button").value
+
+    if (field_value > 0) {
+    	document.getElementById("filter_button").value = `${button} ` + field_value
+   
+    }
+  });
+</script>

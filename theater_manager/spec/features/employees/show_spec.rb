@@ -10,9 +10,7 @@ RSpec.describe 'When I visit an employee show page' do
     employee_1 = theater_1.employees.create(name: 'Mark',
                                             is_full_time: true,
                                             hours_worked: 90)
-		visit '/theaters'
-		click_link('Harkins')
-		click_link('Employees')
+    visit "/theaters/#{theater_1.id}/employees"
 
 
 		expect(current_path).to eq("/theaters/#{theater_1.id}/employees")

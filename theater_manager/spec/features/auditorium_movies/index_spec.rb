@@ -102,6 +102,7 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
                                               showtime_start: "16:00:00",
                                               duration: 108,
                                               ticket_cost: 12.00,
+
                                               is_rated_r: false)
         movie_4 = auditorium_2.movies.create!( name: "MOVIE_D",
                                               showtime_date: "2021-02-12",
@@ -117,6 +118,7 @@ RSpec.describe 'When I visit auditoriums index page', type: :feature do
 
         expect(movie_2.name).to appear_before(movie_1.name)
         expect(movie_1.name).to appear_before(movie_3.name)
+
       end
 
       it 'displays an edit link next to each element' do
