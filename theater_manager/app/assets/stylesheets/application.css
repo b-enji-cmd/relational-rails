@@ -20,10 +20,23 @@
   font-family: Helvetica, sans-serif;
   text-align: justify;
   word-spacing: 20px;
-  margin: 0 0 0 0;
   padding: 5px;
 }
 
 .navbar a {
   color: white;
+}
+
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+
+.div {
+  padding: 15px;
+  margin: 10 10 0 10;
+  font-family: Verdana, sans-serif;
+  border-style: solid;
+  border-color: black;
 }
