@@ -98,11 +98,18 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Start rails server and migrate db
+1. Start rails server
 ```sh
 $ rails s
+```
+2. Create rails database and migrate
+```sh
 $ rails db:create
 $ rails db:migrate
+```
+3. Seed database
+```sh
+$ rails db:seed
 ```
 1. Nagivate to `http://localhost:3000/`
 
